@@ -117,3 +117,10 @@ PRODUCT_PACKAGES += \
 endif
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
+
+# OpenDelta
+PRODUCT_PACKAGES += \
+    OpenDelta
+
+# Fonts
+include vendor/mica/config/fonts.mk
