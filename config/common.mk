@@ -103,7 +103,12 @@ else
      PRODUCT_COPY_FILES += vendor/xdroid/prebuilt/common/media/bootanimation_1080.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 endif
 
--include vendor/xdroid-priv/keys/keys.mk
+# ColumbusService
+ifneq ($(TARGET_SUPPORTS_QUICK_TAP),false)
+PRODUCT_PACKAGES += \
+    ColumbusService
+endif
+
 $(call inherit-product-if-exists, vendor/certification/config.mk)
 
 ifneq ($(PRODUCT_NO_CAMERA),true)
