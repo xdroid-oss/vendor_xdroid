@@ -45,6 +45,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     xdroid-component-overrides.xml
 
+# Themes
+PRODUCT_PACKAGES += \
+    AndroidBlackThemeOverlay
+
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
