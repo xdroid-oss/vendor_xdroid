@@ -96,7 +96,8 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/xdroid/overlay/no-rro
 
 PRODUCT_PACKAGES += \
-    NetworkStackOverlay
+    NetworkStackOverlay \
+    SettingsMica
 
 include vendor/xdroid/config/version.mk
 
