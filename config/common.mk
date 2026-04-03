@@ -97,14 +97,9 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     NetworkStackOverlay \
-    SettingsMica
+    SettingsXdroid
 
 include vendor/xdroid/config/version.mk
-
-# Include gms on all non-eng builds
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-$(call inherit-product-if-exists, vendor/gms/products/gms.mk)
-endif
 
 # Bootanimation
 ifeq ($(TARGET_BOOT_ANIMATION_RES),1440p)
@@ -121,19 +116,10 @@ endif
 
 $(call inherit-product-if-exists, vendor/certification/config.mk)
 
-ifneq ($(PRODUCT_NO_CAMERA),true)
-PRODUCT_PACKAGES += \
-    Aperture
-endif
-
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
-# OpenDelta
-PRODUCT_PACKAGES += \
-    OpenDelta
-
 # Fonts
-include vendor/mica/config/fonts.mk
+include vendor/xdroid/config/fonts.mk
 
 # APEX
 DISABLE_DEXPREOPT_CHECK := true
