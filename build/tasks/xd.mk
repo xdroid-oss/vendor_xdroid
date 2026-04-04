@@ -22,11 +22,10 @@ XDROID_BUILD_TIME :=
 
 MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
-.PHONY: xdroid-release
-xdroid-release: $(DEFAULT_GOAL) $(INTERNAL_OTA_PACKAGE_TARGET) $(INTERNAL_UPDATE_PACKAGE_TARGET)
+.PHONY: xd
+xd: $(DEFAULT_GOAL) $(INTERNAL_OTA_PACKAGE_TARGET) $(INTERNAL_UPDATE_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(XDROID_TARGET_PACKAGE)
 	$(hide) $(MD5) $(XDROID_TARGET_PACKAGE) > $(XDROID_TARGET_PACKAGE).md5sum
-	$(hide) source ./vendor/xdroid/build/tools/generate_json_build_info.sh $(XDROID_TARGET_PACKAGE)
 	$(hide) ln -f $(INTERNAL_UPDATE_PACKAGE_TARGET) $(XDROID_TARGET_UPDATEPACKAGE)
 	$(hide) $(MD5) $(XDROID_TARGET_UPDATEPACKAGE) > $(XDROID_TARGET_UPDATEPACKAGE).md5sum
 	@echo -e ${C								                         "${CL_BLU}
