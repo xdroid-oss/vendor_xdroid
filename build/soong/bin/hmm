@@ -1,6 +1,6 @@
 function __print_xdroid_functions_help() {
 cat <<EOF
-Additional xdroidOSS functions:
+Additional xdroid functions:
 - brunch:          Runs "breakfast" and "mka bacon" for the provided device target.
 - breakfast:       Wrapper for "lunch".
 - eat:             Reboots to recovery and installs the compiled OTA package.
@@ -9,13 +9,6 @@ Additional xdroidOSS functions:
 - mmp:             Builds all of the modules in the current directory and pushes them to the device.
 - mmap:            Builds all of the modules in the current directory and its dependencies, then pushes the package to the device.
 - mmmp:            Builds all of the modules in the supplied directories and pushes them to the device.
-- xdroidgerrit:   A Git wrapper that fetches/pushes patch from/to LineageOS Gerrit Review.
-- xdroidrebase:   Rebase a Gerrit change and push it again.
-- xdroidremote:   Add git remote for LineageOS Gerrit Review.
-- aospremote:      Add git remote for matching AOSP repository.
-- cloremote:       Add git remote for matching CodeLinaro repository.
-- githubremote:    Add git remote for LineageOS Github.
-- privateremote:   Add git remote for Github with ssh access.
 - mka:             Alias to "m".
 - mkap:            Builds the module(s) using mka and pushes them to the device.
 - cmka:            Cleans and builds using mka.
