@@ -16,9 +16,8 @@
 # -----------------------------------------------------------------
 # xdroidOSS OTA update package
 
-XDROID_TARGET_PACKAGE := $(PRODUCT_OUT)/xdroidOSS-$(XDROID_VERSION).zip
-XDROID_TARGET_UPDATEPACKAGE := $(PRODUCT_OUT)/xdroidOSS-$(XDROID_VERSION)-img.zip
-XDROID_BUILD_TIME := 
+XDROID_TARGET_PACKAGE := $(PRODUCT_OUT)/$(XDROID_REVISION).zip
+XDROID_TARGET_UPDATEPACKAGE := $(PRODUCT_OUT)/$(XDROID_REVISION)-fastboot.zip
 
 MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
@@ -28,21 +27,18 @@ xd: $(DEFAULT_GOAL) $(INTERNAL_OTA_PACKAGE_TARGET) $(INTERNAL_UPDATE_PACKAGE_TAR
 	$(hide) $(MD5) $(XDROID_TARGET_PACKAGE) > $(XDROID_TARGET_PACKAGE).md5sum
 	$(hide) ln -f $(INTERNAL_UPDATE_PACKAGE_TARGET) $(XDROID_TARGET_UPDATEPACKAGE)
 	$(hide) $(MD5) $(XDROID_TARGET_UPDATEPACKAGE) > $(XDROID_TARGET_UPDATEPACKAGE).md5sum
-	@echo -e ${C								                         "${CL_BLU}
-	@echo -e ${CL_BLU}"                                                                              "${CL_BLU}
-	@echo -e ${CL_CYN}"=============================-OTA Package Details-============================"${CL_RST}
-	@echo -e ${CL_CYN}"OutputZip      : "${CL_MAG} $(XDROID_TARGET_PACKAGE)${CL_RST}
-	@echo -e ${CL_CYN}"MD5            : "${CL_MAG}" $(shell cat $(XDROID_TARGET_PACKAGE).md5sum | awk '{print $$1}')"${CL_RST}
-	@echo -e ${CL_CYN}"Size           : "${CL_MAG}" $(shell du -hs $(XDROID_TARGET_PACKAGE) | awk '{print $$1}')"${CL_RST}
-	@echo -e ${CL_CYN}"Size(in bytes) : "${CL_MAG}" $(shell wc -c $(XDROID_TARGET_PACKAGE) | awk '{print $$1}')"${CL_RST}
-	@echo -e ${CL_CYN}"Build Type     : "${CL_MAG} $(XDROID_BUILD_TYPE)${CL_RST}
-	@echo -e ${CL_CYN}"==========================================================================="${CL_RST}
 	@echo -e ""
-	@echo -e ${CL_CYN}"============================-Fastboot Package Details-=============================="${CL_RST}
-	@echo -e ${CL_CYN}"OutputZip      : "${CL_MAG} $(XDROID_TARGET_UPDATEPACKAGE)${CL_RST}
-	@echo -e ${CL_CYN}"MD5            : "${CL_MAG}" $(shell cat $(XDROID_TARGET_UPDATEPACKAGE).md5sum | awk '{print $$1}')"${CL_RST} 
-	@echo -e ${CL_CYN}"Size           : "${CL_MAG}" $(shell du -hs $(XDROID_TARGET_UPDATEPACKAGE) | awk '{print $$1}')"${CL_RST}
-	@echo -e ${CL_CYN}"Size(in bytes) : "${CL_MAG}" $(shell wc -c $(XDROID_TARGET_UPDATEPACKAGE) | awk '{print $$1}')"${CL_RST} 
-	@echo -e ${CL_CYN}"Build Type     : "${CL_MAG} $(XDROID_BUILD_TYPE)${CL_RST}
-	@echo -e ${CL_CYN}"==========================================================================="${CL_RST}
+	@echo -e ${CL_GRN}"  xdroidOSS Build Complete  "${CL_RST}
+	@echo -e ""
+	@echo -e ${CL_CYN}"  ┌── OTA Package Details"${CL_RST}
+	@echo -e ${CL_CYN}"  │ "${CL_RST}"File: "${CL_MAG}$(notdir $(XDROID_TARGET_PACKAGE))${CL_RST}
+	@echo -e ${CL_CYN}"  │ "${CL_RST}"MD5:  "${CL_MAG}$(shell cat $(XDROID_TARGET_PACKAGE).md5sum | awk '{print $$1}')${CL_RST}
+	@echo -e ${CL_CYN}"  └ "${CL_RST}"Size: "${CL_MAG}$(shell du -hs $(XDROID_TARGET_PACKAGE) | awk '{print $$1}')${CL_RST}
+	@echo -e ""
+	@echo -e ${CL_CYN}"  ┌── Fastboot Package Details"${CL_RST}
+	@echo -e ${CL_CYN}"  │ "${CL_RST}"File: "${CL_MAG}$(notdir $(XDROID_TARGET_UPDATEPACKAGE))${CL_RST}
+	@echo -e ${CL_CYN}"  │ "${CL_RST}"MD5:  "${CL_MAG}$(shell cat $(XDROID_TARGET_UPDATEPACKAGE).md5sum | awk '{print $$1}')${CL_RST}
+	@echo -e ${CL_CYN}"  └ "${CL_RST}"Size: "${CL_MAG}$(shell du -hs $(XDROID_TARGET_UPDATEPACKAGE) | awk '{print $$1}')${CL_RST}
+	@echo -e ""
+	@echo -e ${CL_CYN}"  Build Type: "${CL_MAG}$(XDROID_BUILD_TYPE)${CL_RST}
 	@echo -e ""
