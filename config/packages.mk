@@ -5,8 +5,7 @@ PRODUCT_PACKAGES += \
 # Binaries
 PRODUCT_PACKAGES += \
     bash \
-    nano \
-	zstd
+    nano
 
 PRODUCT_PACKAGES += \
     nano_recovery
