@@ -55,6 +55,10 @@ endif
 PRODUCT_PACKAGES += \
     sensitive_pn.xml
 
+# ThemePicker
+PRODUCT_PACKAGES += \
+    ThemePicker
+
 # Telephony packages
 PRODUCT_PACKAGES += \
     messaging \
